@@ -48,7 +48,7 @@ def decrypt(key, message):
 
     decrypted = unpad(decrypted_padded)
 
-    return decrypted.decode("UTF-8");
+    return decrypted.decode("UTF-8")
 
 def main():
     do_encrypt = False

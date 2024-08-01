@@ -15,7 +15,7 @@ public class AESCrypt {
     public static String encrypt(String key, String plaintext) {
         try {
             // Generate a random 16-byte initialization vector
-            byte initVector[] = new byte[16];
+            byte[] initVector = new byte[16];
             (new Random()).nextBytes(initVector);
             IvParameterSpec iv = new IvParameterSpec(initVector);
 
