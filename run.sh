@@ -5,9 +5,13 @@ key="ThisIsA16ByteKey"
 
 source venv/bin/activate
 
+pip install -r python/requirements.txt
+
+javac -d java java/AESCrypt.java
+
 echo Plaintext is \"${plaintext}\"
 
-python_encrypt=$(python python-pycryptodome/AES.py encrypt "$key" "$plaintext")
+python_encrypt=$(python python/AES.py encrypt "$key" "$plaintext")
 
 echo Python encrypted to \"${python_encrypt}\"
 
@@ -19,7 +23,7 @@ java_encrypt=$(java -cp java AESCrypt encrypt "$key" "$plaintext")
 
 echo Java encrypted to \"${java_encrypt}\"
 
-python_decrypt=$(python python-pycryptodome/AES.py decrypt "$key" "$java_encrypt")
+python_decrypt=$(python python/AES.py decrypt "$key" "$java_encrypt")
 
 echo Python decrypted to \"${python_decrypt}\"
 
